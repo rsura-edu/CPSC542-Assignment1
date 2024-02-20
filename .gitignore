@@ -3,4 +3,5 @@ test*
 rf_confusion_matrix.png
 cnn_model_accuracy.png
 cnn_confusion_matrix.png
+cnn_predictions.png
 *.h5
