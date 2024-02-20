@@ -28,7 +28,7 @@ def load_images(folder_path, target_size=(240, 240)):
             img_array = np.array(img)
 
             images.append(img_array.flatten()) # Flatten image into 1D array
-            labels.append((celebrity_path.split('/')[-1]))
+            labels.append((celebrity_path.split('/')[-1])) # celebrity name without whole path to folder
 
     return np.array(images), np.array(labels)
 
@@ -53,11 +53,9 @@ print(f"Train Accuracy: {train_accuracy:.2f}")
 
 
 # plotting confusion matrix
-# help(ConfusionMatrixDisplay)
-disp = plot_confusion_matrix(rf_classifier, X_test, y_test, 
-                              cmap=plt.cm.Blues, 
-                              xticks_rotation='vertical',
-                              )
-# disp.ax_.set_title('Confusion Matrix - Random Forest (100 Trees)')
+disp = plot_confusion_matrix(rf_classifier, X_test, y_test, cmap=plt.cm.Blues, xticks_rotation='vertical')
+
+plt.title("Random Forest Confusion Matrix")
+
 plt.subplots_adjust(bottom=0.35)  # overflow labels on bottom of matrix
-plt.savefig('rf_confusion_matrix.png') # save
+plt.savefig('rf_confusion_matrix.png') # save to image
