@@ -27,7 +27,8 @@ train_gen = ImageDataGenerator(rescale=1.0/255.0, horizontal_flip=True, preproce
     train_dir,
     target_size=img_size,
     batch_size=batch_size,
-    class_mode='categorical')
+    class_mode='categorical',
+    shuffle=False)
 test_gen = ImageDataGenerator(rescale=1.0/255.0, horizontal_flip=True, preprocessing_function=preprocess_input).flow_from_directory(
     test_dir,
     target_size=img_size,
@@ -38,7 +39,8 @@ val_gen = ImageDataGenerator(rescale=1.0/255.0, horizontal_flip=True, preprocess
     val_dir,
     target_size=img_size,
     batch_size=batch_size,
-    class_mode='categorical')
+    class_mode='categorical',
+    shuffle=False)
 
 # Model building/compiling/fitting
 model: object # declared for out of scope referencing
@@ -49,6 +51,10 @@ except:
     vgg_model = VGG16(weights='imagenet', 
                     include_top=False, 
                     input_shape=(224, 224, 3))
+    
+    # freeze vgg model weights
+    for layer in vgg_model.layers:
+        layer.trainable = False
 
     # create model with VGG
     model = Sequential()
