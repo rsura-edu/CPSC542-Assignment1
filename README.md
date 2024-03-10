@@ -8,8 +8,8 @@ Link to [external celebrity dataset](https://www.kaggle.com/datasets/bhaveshmitt
 - a. Full name: Rahul Sura
 - b. Student ID: 2371308
 - c. Chapman email: sura@chapman.edu
-- d. Course number and section: CPSC 393 - 02
-- e. Assignment or exercise number: HW 5
+- d. Course number and section: CPSC 542 - 01
+- e. Assignment or exercise number: Assignment 1
 
 ## 2) Source Files:
 
